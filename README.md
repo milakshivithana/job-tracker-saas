@@ -43,15 +43,15 @@ CareerSuite is a state-of-the-art, high-performance web application designed for
 
 ```mermaid
 graph TD
-    Client[Browser: https://job-tracker-saas-psi.vercel.app] -->|Render UI| NextJS[Next.js Client v16]
-    NextJS -->|Client-side API requests| REST[Spring Boot REST Controllers]
+    Client["User Web Browser"] -->|HTTPS| NextJS["Next.js Frontend (Vercel)"]
+    NextJS -->|REST API Requests| REST["Spring Boot Backend (Local)"]
     
-    subgraph Local Laptop Runtime
-        REST -->|JPA & Hibernate ORM| Hikari[HikariCP Connection Pool]
+    subgraph Local["Local Laptop Runtime"]
+        REST -->|JPA & Hibernate| Hikari["HikariCP Connection Pool"]
     end
     
-    subgraph Neon Serverless Cloud
-        Hikari -->|SSL Secure Connection| PG[(Cloud PostgreSQL Database)]
+    subgraph Cloud["Neon Serverless Cloud"]
+        Hikari -->|SSL Connection| PG[("Cloud PostgreSQL Database")]
     end
 ```
 
