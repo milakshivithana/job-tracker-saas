@@ -20,7 +20,7 @@ import com.example.demo.repository.JobRepository;
 
 @RestController
 @RequestMapping("/api/jobs")
-@CrossOrigin(origins = "http://localhost:3000") // Connect with Next.js frontend
+@CrossOrigin(origins = "*") // Allow both localhost and Vercel domains to connect
 public class JobController {
 
     @Autowired
